@@ -1,7 +1,7 @@
 import "./App.css";
 
 // Lessons:
-import Lesson06 from "./lessons/Lessons06/Lessons06";
+import Lesson06 from "./lessons/Lessons06/Lesson06";
 
 // Homeworks:
 
