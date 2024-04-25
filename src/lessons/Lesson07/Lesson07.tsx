@@ -1,6 +1,19 @@
 // import "./ styles.css";
+import { useState } from "react";
+import Counter from "components/Counter/Counter";
 
 function Lesson07() {
+
+  const [count, setCount] = useState<number>(0);
+
+  const onMinus = (): void => {
+    setCount((prevValue) => prevValue - 1);
+  };
+
+  const onPlus = (): void => {
+    setCount((prevValue) => prevValue + 1);
+  };
+
   // generic
 
   type CustomArrayType<T = string> = T[];
@@ -33,17 +46,21 @@ function Lesson07() {
     weight: "4",
   };
 
-// enum:
+  // enum:
 
-enum Colors {Red, Black=9, Green};
-// console.log(Colors);
-let color: Colors = Colors.Red;
-color = 0;
-console.log(color);
+  enum Colors {
+    Red,
+    Black = 9,
+    Green,
+  }
+  // console.log(Colors);
+  let color: Colors = Colors.Red;
+  color = 0;
+  console.log(color);
 
-// switch case:
+  // switch case:
 
-enum WeathersCode {
+  enum WeathersCode {
     SQ = "SQ",
     PO = "PO",
     FC = "FC",
@@ -76,11 +93,11 @@ enum WeathersCode {
   };
   console.log(decode(WeathersCode.FC));
 
-
-
-
-
-  return <div>Lesson07</div>;
+  return (
+    <div> .
+      <Counter countValue={count} onMinusClick={onMinus} onPlusClick={onPlus} />
+    </div>
+  );
 }
 
 export default Lesson07;
