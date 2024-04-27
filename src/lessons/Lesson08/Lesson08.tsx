@@ -17,7 +17,7 @@ const typeButton= true;
     <Lesson08Component>
         <BoxComponent>My first emotion block</BoxComponent>
         <ButtonComponent mainButton>Custom Button</ButtonComponent>
-        <ButtonComponent mainButton={false}>Custom Button</ButtonComponent>
+        <ButtonComponent mainButton={typeButton}>Custom Button</ButtonComponent>
         <InfoBoxComponent>Info</InfoBoxComponent>
     {/* // 2. Metode: inline styles */}
       {/* <p style={{ fontSize: "32px", color: "blue" }}>Hello</p>
