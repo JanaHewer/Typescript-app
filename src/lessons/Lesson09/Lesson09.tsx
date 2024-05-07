@@ -4,6 +4,8 @@ import { InputExample, Lesson09Component, Result } from "./styles";
 function Lesson09() {
   const [inputValue, setInputValue] = useState<string>("");
   const [inputValue2, setInputValue2] = useState<string>("");
+  const [activity, setActivity] = useState<string>("");
+
   const onChangeInput = (event: ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
   };
@@ -11,15 +13,37 @@ function Lesson09() {
     setInputValue2(event.target.value);
   };
 
+  const getActivity = async () => {
+    try {
+      const response = await fetch("https://www.boredapi.com/api/activity");
+      const result = await response.json();
+      console.log(result.activity);
+
+      if (!response.ok) {
+        throw Object.assign(new Error("API Error"), {
+          response: result,
+        });
+      } else {
+        setActivity(result.activity);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  // getActivity();
   // Вызов функции callback при создании компонента. Пустой массив завсимостей
   useEffect(() => {
     console.log("mounting");
+    getActivity();
   }, []);
 
   // Вызов функции callback при обновлении компонента.  Массив завсимостей не пустой
   useEffect(() => {
     console.log("Updating");
-  }, [inputValue]);
+    if (!!activity) {
+      getActivity();
+    }
+  }, [inputValue,inputValue2])
 
   // Вызов функции callback при размонтировании компонента.
   //Массив завсимостей пустой, внутри callback функции возвращается другая функция
@@ -45,6 +69,7 @@ function Lesson09() {
       />
       <Result>{inputValue}</Result>
       <Result>{inputValue2}</Result>
+      <Result>{activity}</Result>
     </Lesson09Component>
   );
 }
