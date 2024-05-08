@@ -25,12 +25,13 @@ function Lesson09() {
         });
       } else {
         setActivity(result.activity);
+        // return result.activity
       }
     } catch (error) {
       console.log(error);
     }
   };
-  // getActivity();
+ 
   // Вызов функции callback при создании компонента. Пустой массив завсимостей
   useEffect(() => {
     console.log("mounting");
@@ -42,8 +43,9 @@ function Lesson09() {
     console.log("Updating");
     if (!!activity) {
       getActivity();
+      console.log("Updating");
     }
-  }, [inputValue,inputValue2])
+  }, [inputValue, inputValue2]);
 
   // Вызов функции callback при размонтировании компонента.
   //Массив завсимостей пустой, внутри callback функции возвращается другая функция
