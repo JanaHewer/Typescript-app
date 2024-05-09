@@ -27,13 +27,13 @@ function Homework09() {
   };
   return (
     <Homework09Wrapper>
-      <Input
+      <Input value={firstNote}
         placeholder="First note"
         onInputChange={onFirstNoteChange}
         name="firstNote"
         label="First note"
       />
-      <Input
+      <Input value={secondNote}
         placeholder="Second note"
         onInputChange={onSecondNoteChange}
         name="secondNote"
